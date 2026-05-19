@@ -68,3 +68,55 @@ banking-rag-chatbot/
 ├── chroma_db/
 
 └── data/
+
+
+
+
+INSTALLATION
+Clone Repository
+git clone https://github.com/your-username/finsure-rag-portal.git
+cd finsure-rag-portal
+
+CREATE VIRTUAL ENVIRONMENT
+python -m venv venv
+source venv/bin/activate
+
+INSTALL DEPENDENCIES
+pip install -r requirements.txt
+
+RUN BACKEND
+python -m uvicorn app:app --reload
+
+RUN FRONTEND
+streamlit run frontend.py
+
+WORKFLOW
+1. Upload Financial PDF Documents
+2. Documents are chunked and embedded
+3. Embeddings are stored in ChromaDB
+4. User asks financial questions
+5. Relevant chunks are retrieved
+6. AI generates contextual responses
+
+FUTURE ENHANCEMENTS
+* Multi-document querying
+* Financial dashboard analytics
+* OCR support
+* Chat history persistence
+* User authentication
+* Cloud deployment
+* Role-based access control
+
+AUTHOR
+
+Ishika Wadhawan
+
+B.Tech CSE – AI & ML
+UPES Dehradun
+
+LinkedIn:
+https://linkedin.com/in/ishika-wadhawan
+
+
+LICENSE
+This project is developed for educational and research purposes.
