@@ -1,12 +1,12 @@
 import streamlit as st
 import requests
 
-# ---------------- SESSION STATE ---------------- #
+
 
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-# ---------------- PAGE CONFIG ---------------- #
+
 
 st.set_page_config(
     page_title="FinSure",
@@ -14,7 +14,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# ---------------- CUSTOM CSS ---------------- #
+
 
 st.markdown("""
 <style>
@@ -114,7 +114,7 @@ textarea {
 </style>
 """, unsafe_allow_html=True)
 
-# ---------------- SIDEBAR ---------------- #
+
 
 with st.sidebar:
 
@@ -179,7 +179,7 @@ with st.sidebar:
             }
 
             response = requests.post(
-                "http://127.0.0.1:8000/upload",
+                "https://finsure-rag-portal.onrender.com/upload",
                 files=files
             )
 
@@ -189,7 +189,6 @@ with st.sidebar:
             else:
                 st.error("Upload failed")
 
-# ---------------- HERO SECTION ---------------- #
 
 st.markdown("""
 <div class="hero-card">
@@ -209,7 +208,7 @@ knowledge systems using semantic search and intelligent retrieval.
 </div>
 """, unsafe_allow_html=True)
 
-# ---------------- QUERY INPUT ---------------- #
+
 
 query = st.text_area(
     "Search Financial Documents",
@@ -217,7 +216,7 @@ query = st.text_area(
     height=150
 )
 
-# ---------------- GENERATE RESPONSE ---------------- #
+
 
 if st.button("Generate Insight", key="generate_btn"):
 
@@ -229,7 +228,7 @@ if st.button("Generate Insight", key="generate_btn"):
         with st.spinner("Generating financial insight..."):
 
             response = requests.post(
-                "http://127.0.0.1:8000/chat",
+                "https://finsure-rag-portal.onrender.com/chat",
                 params={"query": query}
             )
 
